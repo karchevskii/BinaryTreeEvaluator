@@ -20,6 +20,30 @@ In order to use this programm you need to pass arguments to the programm. The fi
 ./BinaryTreeEvaluator {">", "10 4 5*+84 12 / 1 -/"}  # Postfix
 ```
 
+Example output:
+```bash
+$ ./BinaryTreeEvaluator {"|","((10 +(4*5))/((84/12)-1))"}
+
+Mode:|
+Expression:((10 +(4*5))/((84/12)-1))
+Prefix:  /+10*45-/84121 = 5
+Infix:   ((10+(4*5))/((84/12)-1)) = 5
+Postfix: 1045*+8412/1-/ = 5
+Nodes: 11
+Depth: 4
+        .——— 1
+    .——— -
+   │   │    .——— 12
+   │    `——— /
+   │        `——— 84
+——— /
+   │        .——— 5
+   │    .——— *
+   │   │    `——— 4
+    `——— +
+        `——— 10
+```
+
 ## Contributers
 - [Dinar Karchevskii](https://github.com/karchevskii)
 - [Philipp Konstantin Gehrig](https://github.com/philippgehrig)
