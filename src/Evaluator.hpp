@@ -71,8 +71,9 @@ private:
     ///@return The root of the tree
     Token *parse(vector<Token *> *tok, char mode)
     {
-        vector<Token *>::iterator begin = tok->begin();
-        vector<Token *>::iterator end = tok->end();
+        vector<Token *>::iterator begin = tok->begin(); // tok is inverted so begin is end
+        vector<Token *>::iterator end = tok->end(); // tok is inverted so end is begin
+
         switch (mode) {
             case '<': return parsePrefix(begin, end);
             case '>': return parsePostfix(begin, end);
