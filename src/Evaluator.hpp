@@ -93,21 +93,23 @@ private:
         for(; begin != end; begin++)
         {
             Token* token = *begin;
-            if (dynamic_cast<Num *>(token) != nullptr)
+            if (dynamic_cast<Num *>(token) != nullptr) // checks if Element is Num
             {
                 s->push(token);
             }
-            else if (dynamic_cast<Operator *>(token) != nullptr)
+            else if (dynamic_cast<Operator *>(token) != nullptr) // checks if Element is Operator
             {
                 Token *op2 = s->top(); s->pop();
                 Token *op1 = s->top(); s->pop();
+
+                // add new Element to stack with operation and operands
                 Token *BaumElement = new Operator(token->getType(), op2, op1);
                 s->push(BaumElement);
             }
         }
         Token *result = s->top();
         s->pop();
-        delete s;
+        delete s; // cleans up storage
         return result;
 
     }
@@ -121,22 +123,26 @@ private:
     Token *parsePostfix(vector<Token *>::iterator begin, vector<Token *>::iterator end) {
 
         stack<Token *> *s = new stack<Token *>();
-        begin--;
-        for (; begin != end; end--) {
+        begin--; // begin reduced by 1 to cover whole vector
+        for (; begin != end; end--)
+        {
             Token *token = *end;
-            if (dynamic_cast<Num *>(token) != nullptr) {
+            if (dynamic_cast<Num *>(token) != nullptr) // checks if Element is Num
+            {
                 s->push(token);
-            } else if (dynamic_cast<Operator *>(token) != nullptr) {
+            }
+            else if (dynamic_cast<Operator *>(token) != nullptr) // checks if Element is Operator
+            {
                 Token *op1 = s->top(); s->pop();
                 Token *op2 = s->top(); s->pop();
-
+                // add new Element to stack with operation and operands
                 Token *BaumElement = new Operator(token->getType(), op2, op1);
                 s->push(BaumElement);
             }
         }
         Token *result = s->top();
         s->pop();
-        delete s;
+        delete s; // cleans up storage
         return result;
 
     }
@@ -151,8 +157,7 @@ private:
         // loop that iterates through the vector of tokens
         do
         {
-            // if token is not a closing bracket, push it to the stack
-            if ( (*begin)->getValue() != ")" )
+            if ( (*begin)->getValue() != ")" ) // checks if Element is closing Bracket ")"
             {
                 s->push(*begin);
             }
@@ -161,7 +166,7 @@ private:
                 Token* tmp_operand_right = s->top(); s->pop();
                 Token* tmp_operator = s->top(); s->pop();
                 Token* tmp_operand_left = s->top(); s->pop();
-
+                // add new Element to stack with operation and operands
                 Token *BaumElement = new Operator(tmp_operator->getType(), tmp_operand_right, tmp_operand_left);
                 s->push(BaumElement);
 
@@ -172,7 +177,7 @@ private:
 
         Token *result = s->top();
         s->pop();
-        delete s;
+        delete s; // cleans up storage
         return result;
 
     }

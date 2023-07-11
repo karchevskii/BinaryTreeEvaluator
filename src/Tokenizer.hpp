@@ -32,18 +32,20 @@ public:
             char c = src[j];
             if(c == ' ')
                 continue;
-            if(c == '(' || c == ')')
+            if(c == '(' || c == ')') // case Bracket
             {
                 i = tokens->insert(i, new Bracket(c));
                 continue;
             }
-            if(c == '+' || c == '-' || c == '*' || c == '/')
+            if(c == '+' || c == '-' || c == '*' || c == '/') // case Operator
             {
                 i = tokens->insert(i, new Operator(c));
                 continue;
             }
-            if(c >= '0' && c <= '9')
+
+            if(c >= '0' && c <= '9') // case Num
             {
+                // read the whole number instead of just one digit
                 int num = 0;
                 while(c >= '0' && c <= '9')
                 {
