@@ -6,8 +6,7 @@ This is a simple binary tree evaluator written in C++ within our algorithms lect
 First you need to compile the programm. You can do this by using the makefile. Just type `make` in your terminal. This will create a binary file called `BinaryTreeEvaluator`.
 
 ```bash
-$ make
-$ ./main
+$ cmake --build <your destination folder, eg. /cmake-build-debug with CLion> --target BinaryTreeEvaluator -j 8
 ```
 
 
