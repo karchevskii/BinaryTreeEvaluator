@@ -1,7 +1,3 @@
-//
-// Created by Dinar Karchevskii on 08.07.23.
-//
-
 #ifndef LABOR_ALGORITHMS_EVALUATOR_HPP
 #define LABOR_ALGORITHMS_EVALUATOR_HPP
 
@@ -23,7 +19,7 @@ class Evaluator
 
 public:
 
-    ///@brief Evaluates the expression
+    ///@brief evaluates the expression
     ///@param exp the expression
     ///@param mode the mode '<': Prefix, '|': Infix, '>': Postfix
     void evaluate(string exp, char mode)

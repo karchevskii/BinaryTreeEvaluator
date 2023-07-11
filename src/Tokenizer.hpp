@@ -1,7 +1,3 @@
-//
-// Created by Dinar Karchevskii on 08.07.23.
-//
-
 #ifndef LABOR_ALGORITHMS_TOKENIZER_HPP
 #define LABOR_ALGORITHMS_TOKENIZER_HPP
 #include <string>
@@ -22,8 +18,7 @@ class Tokenizer
 public:
     Tokenizer(string s)
     {
-        src = s + " "; // Das Leerzeichen dient dazu, beim Lesen von Zahlen nicht
-        // ueber die String-Grenze zu laufen
+        src = s + " "; //empty space to avoid running over the string border
     }
 
     ///@brief Tokenize the expression

@@ -1,7 +1,3 @@
-//
-// Created by Dinar Karchevskii on 08.07.23.
-//
-
 #ifndef LABOR_ALGORITHMS_VISUALIZER_HPP
 #define LABOR_ALGORITHMS_VISUALIZER_HPP
 #include "Token.hpp"

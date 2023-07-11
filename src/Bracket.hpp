@@ -1,45 +1,37 @@
-//
-// Created by Dinar Karchevskii on 08.07.23.
-//
-
 #ifndef LABOR_ALGORITHMS_BRACKET_HPP
 #define LABOR_ALGORITHMS_BRACKET_HPP
 #include <iostream>
 #include <string>
 #include "Token.hpp"
 
-///@brief Baumknoten und Token zur Darstellung einer Klammer.
 class Bracket : public Token
 {
 
 public:
 
-    ///@brief Erzeugt eine neue Klammer.
-    Bracket(char t) { m_type = t; /* cout << "Bracket added: " << t << endl; */}
+    ///@brief creates a new bracket
+    Bracket(char t) { m_type = t;}
 
-    ///@brief Dummy-Methode, tut nichts.
+    ///@brief dummy method
     ///@return 0
     int eval() override { return 0; }
 
+    ///@brief returns the bracket as string
     string getValue() override
     {
         return string(1, m_type);
     }
 
 
-    ///@brief Dummy-Methode, tut nichts.
-    ///@return leerer String
+    ///@brief dummy method
+    ///@return empty string
     string prefix() override { return ""; }
 
-    /*
-     * Dummy-Methode, tut nichts.
-     *
-     * Return: leerer String
-     */
+    ///
     string infix() override { return ""; }
 
-    ///@brief Dummy-Methode, tut nichts.
-    ///@return leerer String
+    ///@brief dummy method
+    ///@return empty string
     string postfix() override { return ""; }
 
 };

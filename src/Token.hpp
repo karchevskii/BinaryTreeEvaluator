@@ -1,7 +1,3 @@
-//
-// Created by Dinar Karchevskii on 08.07.23.
-//
-
 #ifndef LABOR_ALGORITHMS_TOKEN_HPP
 #define LABOR_ALGORITHMS_TOKEN_HPP
 
@@ -31,11 +27,23 @@ public:
 
     virtual ~Token() {}
 
-    char getType() { return m_type; } // Typ des Knotens
-    virtual int eval() = 0;			// Auswertung
-    virtual string prefix() = 0;	// Prefix-Darstellung
-    virtual string infix() = 0;		// Infix-Darstellung
-    virtual string postfix() = 0;	// Postfix-Darstellung
+    ///@brief getter type of token
+    ///@return char: type of token
+    char getType(){
+        return m_type;
+    }
+
+    ///@brief evaluate the expression
+    virtual int eval() = 0;
+
+    ///@brief prefix notation
+    virtual string prefix() = 0;
+
+    ///@brief infix notation
+    virtual string infix() = 0;
+
+    ///@brief postfix notation
+    virtual string postfix() = 0;
 
     ///@brief left subtree
     virtual Token* left() {

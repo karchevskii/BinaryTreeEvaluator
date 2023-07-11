@@ -1,9 +1,6 @@
-//
-// Created by Dinar Karchevskii on 08.07.23.
-//
-
 #ifndef LABOR_ALGORITHMS_NUM_HPP
 #define LABOR_ALGORITHMS_NUM_HPP
+
 #include <iostream>
 #include <string>
 #include "Token.hpp"
