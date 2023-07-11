@@ -31,7 +31,7 @@ public:
         ///@brief Construct the tree from the tokens
         Token *e = parse(t->tokenize(), mode);
 
-
+///@test strings for testing
 //        e = new Operator('+',
 //                   new Operator('*',
 //                          new Num(2),
