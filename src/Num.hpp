@@ -1,5 +1,5 @@
-#ifndef LABOR_ALGORITHMS_NUM_HPP
-#define LABOR_ALGORITHMS_NUM_HPP
+#ifndef BINARY_TREE_EVALUATOR_NUM_HPP
+#define BINARY_TREE_EVALUATOR_NUM_HPP
 
 #include <iostream>
 #include <string>
@@ -53,4 +53,4 @@ public:
 
 
 };
-#endif //LABOR_ALGORITHMS_NUM_HPP
+#endif //BINARY_TREE_EVALUATOR_NUM_HPP

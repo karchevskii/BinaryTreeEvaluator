@@ -1,5 +1,5 @@
-#ifndef LABOR_ALGORITHMS_OPERATOR_HPP
-#define LABOR_ALGORITHMS_OPERATOR_HPP
+#ifndef BINARY_TREE_EVALUATOR_OPERATOR_HPP
+#define BINARY_TREE_EVALUATOR_OPERATOR_HPP
 #include <iostream>
 #include <string>
 #include "Token.hpp"

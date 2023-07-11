@@ -1,5 +1,5 @@
-#ifndef LABOR_ALGORITHMS_BRACKET_HPP
-#define LABOR_ALGORITHMS_BRACKET_HPP
+#ifndef BINARY_TREE_EVALUATOR_BRACKET_HPP
+#define BINARY_TREE_EVALUATOR_BRACKET_HPP
 #include <iostream>
 #include <string>
 #include "Token.hpp"
@@ -35,4 +35,4 @@ public:
     string postfix() override { return ""; }
 
 };
-#endif //LABOR_ALGORITHMS_BRACKET_HPP
+#endif //BINARY_TREE_EVALUATOR_BRACKET_HPP
