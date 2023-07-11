@@ -157,11 +157,7 @@ private:
         // loop that iterates through the vector of tokens
         do
         {
-            if ( (*begin)->getValue() != ")" ) // checks if Element is closing Bracket ")"
-            {
-                s->push(*begin);
-            }
-            else
+            if ( (*end)->getValue() != ")" ) // checks if Element is closing Bracket ")"
             {
                 Token* tmp_operand_right = s->top(); s->pop();
                 Token* tmp_operator = s->top(); s->pop();
@@ -169,10 +165,13 @@ private:
                 // add new Element to stack with operation and operands
                 Token *BaumElement = new Operator(tmp_operator->getType(), tmp_operand_right, tmp_operand_left);
                 s->push(BaumElement);
-
             }
-            begin++; // iterate to next token
-        } while (*begin != *end); // loop until end of vector is reached
+            else
+            {
+                s->push(*end);
+            }
+            end--; // iterate to next token
+        } while (*end != *begin); // loop until end of vector is reached
 
 
         Token *result = s->top();
