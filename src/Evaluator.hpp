@@ -69,10 +69,8 @@ private:
     ///@param tok The tokenized expression
     ///@param mode The mode of the expression '<': Prefix, '|': Infix, '>': Postfix
     ///@return The root of the tree
-    Token *parse(vector<Token *> *tok, char mode) {
-
-
-
+    Token *parse(vector<Token *> *tok, char mode)
+    {
         vector<Token *>::iterator begin = tok->begin();
         vector<Token *>::iterator end = tok->end();
         switch (mode) {
@@ -80,7 +78,6 @@ private:
             case '>': return parsePostfix(begin, end);
             case '|': return parseInfix(begin, end);
         }
-
         return nullptr;
     }
 
@@ -89,6 +86,7 @@ private:
     ///@param begin Iterator to the first element
     ///@param end Iterator to the last element
     ///@return The root of the tree
+
     Token *parsePrefix(vector<Token*>::iterator begin, vector<Token*>::iterator end)
     {
         stack<Token*> *s = new stack<Token*>();
@@ -101,10 +99,8 @@ private:
             }
             else if (dynamic_cast<Operator *>(token) != nullptr)
             {
-                Token *op2 = s->top();
-                s->pop();
-                Token *op1 = s->top();
-                s->pop();
+                Token *op2 = s->top(); s->pop();
+                Token *op1 = s->top(); s->pop();
                 Token *BaumElement = new Operator(token->getType(), op2, op1);
                 s->push(BaumElement);
             }
@@ -131,10 +127,9 @@ private:
             if (dynamic_cast<Num *>(token) != nullptr) {
                 s->push(token);
             } else if (dynamic_cast<Operator *>(token) != nullptr) {
-                Token *op1 = s->top();
-                s->pop();
-                Token *op2 = s->top();
-                s->pop();
+                Token *op1 = s->top(); s->pop();
+                Token *op2 = s->top(); s->pop();
+
                 Token *BaumElement = new Operator(token->getType(), op2, op1);
                 s->push(BaumElement);
             }
@@ -149,9 +144,31 @@ private:
 
 
     ///@todo
-    Token* parseInfix(vector<Token*>::iterator i, vector<Token*>::iterator end)
+    Token* parseInfix(vector<Token*>::iterator begin, vector<Token*>::iterator end)
     {
         stack<Token*> *s = new stack<Token*>();
+
+        // loop that iterates through the vector of tokens
+        do
+        {
+            // if token is not a closing bracket, push it to the stack
+            if ( (*begin)->getValue() != ")" )
+            {
+                s->push(*begin);
+            }
+            else
+            {
+                Token* tmp_operand_right = s->top(); s->pop();
+                Token* tmp_operator = s->top(); s->pop();
+                Token* tmp_operand_left = s->top(); s->pop();
+
+                Token *BaumElement = new Operator(tmp_operator->getType(), tmp_operand_right, tmp_operand_left);
+                s->push(BaumElement);
+
+            }
+            begin++; // iterate to next token
+        } while (*begin != *end); // loop until end of vector is reached
+
 
         Token *result = s->top();
         s->pop();
