@@ -38,6 +38,8 @@ int main(int argc, char* argv[])
 //        char mode = '>';
 //        string exp= "/+10*4 5-/84 12 1";
 //        char mode = '<';
+//        string exp = "((10+(4*5))/((84/12)-1))";
+//        char mode = '|';
         Evaluator e;
         e.evaluate(exp, mode);
     }

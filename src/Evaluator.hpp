@@ -109,7 +109,7 @@ private:
         }
         Token *result = s->top();
         s->pop();
-        delete s; // cleans up storage
+        delete s;
         return result;
 
     }
@@ -142,41 +142,56 @@ private:
         }
         Token *result = s->top();
         s->pop();
-        delete s; // cleans up storage
+        delete s;
         return result;
 
     }
 
 
 
-    ///@todo
+    ///@brief Parse an infix expression
+    ///@param begin Iterator to the first element
+    ///@param end Iterator to the last element
+    ///@return The root of the tree
     Token* parseInfix(vector<Token*>::iterator begin, vector<Token*>::iterator end)
     {
         stack<Token*> *s = new stack<Token*>();
+        end--;
+        begin--;
 
-        // loop that iterates through the vector of tokens
-        do
+        for (; begin != end; end--)
         {
-            if ( (*end)->getValue() != ")" ) // checks if Element is closing Bracket ")"
+            Token *token = *end;
+
+            if (dynamic_cast<Num *>(token) != nullptr) // checks if Element is Num
             {
-                Token* tmp_operand_right = s->top(); s->pop();
-                Token* tmp_operator = s->top(); s->pop();
-                Token* tmp_operand_left = s->top(); s->pop();
+                s->push(token);
+            }
+            else if (dynamic_cast<Operator *>(token) != nullptr) // checks if Element is Operator
+            {
+                s->push(token);
+            }
+            else if (dynamic_cast<Bracket *>(token) != nullptr && token->getValue() == "(") //opening bracket
+            {
+                s->push(token);
+            }
+            else if (dynamic_cast<Bracket *>(token) != nullptr && token->getValue() == ")") //closing bracket
+            {
+                Token *firstNum = s->top(); s->pop();
+                Token *op = s->top(); s->pop();
+                Token *secondNum = s->top(); s->pop();
+
+                s->pop(); // pop opening bracket
+
                 // add new Element to stack with operation and operands
-                Token *BaumElement = new Operator(tmp_operator->getType(), tmp_operand_right, tmp_operand_left);
+                Token *BaumElement = new Operator(op->getType(), secondNum, firstNum);
                 s->push(BaumElement);
             }
-            else
-            {
-                s->push(*end);
-            }
-            end--; // iterate to next token
-        } while (*end != *begin); // loop until end of vector is reached
-
+        }
 
         Token *result = s->top();
         s->pop();
-        delete s; // cleans up storage
+        delete s;
         return result;
 
     }
