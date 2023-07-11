@@ -33,6 +33,7 @@ int main(int argc, char* argv[])
             mode = '|'; // Standard: Infix
         }
 
+        ///@brief test strings:
 //        string exp = "10 4 5*+84 12 / 1 -/";
 //        char mode = '>';
 //        string exp= "/+10*4 5-/84 12 1";
