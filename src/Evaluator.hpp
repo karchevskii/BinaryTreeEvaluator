@@ -53,8 +53,8 @@ public:
         cout << "Prefix:  " << e->prefix() << " = " << e->eval() << endl;
         cout << "Infix:   " << e->infix() << " = " << e->eval() << endl;
         cout << "Postfix: " << e->postfix() << " = " << e->eval() << endl;
-        cout << "Knoten: " << e->nodes() << endl;
-        cout << "Tiefe: " << e->depth() << endl;
+        cout << "Nodes: " << e->nodes() << endl;
+        cout << "Depth: " << e->depth() << endl;
 
         ///@brief Visualize the tree
         Vis *v = new Vis();
