@@ -46,8 +46,8 @@ public:
         // Prefix:  + * 2 3 - / 6 2 1 = 8
         // Infix:   ((2 * 3) + ((6 / 2) - 1)) = 8
         // Postfix: 2 3 * 6 2 / 1 - + = 8
-        // #Knoten: 9
-        // Tiefe:   4
+        // Nodes: 9
+        // Depth:   4
 
         ///@brief print the evaluated expression
         cout << "Prefix:  " << e->prefix() << " = " << e->eval() << endl;
