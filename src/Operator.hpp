@@ -74,6 +74,7 @@ public:
         if (left != nullptr)
         {
             result += left->prefix();
+            result += " ";
         }
 
         if (right != nullptr)
@@ -114,6 +115,7 @@ public:
         if (left != nullptr)
         {
             result += left->postfix();
+            result += " ";
         }
 
         if (right != nullptr)
